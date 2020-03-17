@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "prestart": "npm run build",
+    "dev": "npm run build",
     "start": "nodemon server.js",
     "prebuild": "rimraf ./static",
     "build": "npm-run-all build:*",
