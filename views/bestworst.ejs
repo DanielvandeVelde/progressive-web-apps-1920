@@ -4,7 +4,7 @@
 <section class="pos">
   <a href="/coin/<%=maximum.abbreviation%>">
 <h2><%=maximum.abbreviation%></h2>
-<h3><%=maximum.day%></h3>
+<h3><%=maximum.day.replace(/\./g, ',')%>%</h3>
 <p>
   That's the best percentage gain in the last 24 hours. <br> The price of <%=maximum.abbreviation%> is now: <span>€<%=maximum.price%></span>.
     </p></a>
@@ -12,7 +12,7 @@
 <section class="neg">
   <a href="/coin/<%=minimum.abbreviation%>">
 <h2><%=minimum.abbreviation%></h2>
-<h3><%=minimum.day%></h3>
+<h3><%=minimum.day.replace(/\./g, ',')%>%</h3>
 <p>
   That's the worst percentage loss in the last 24 hours. <br> The price of <%=minimum.abbreviation%> is now: <span>€<%=minimum.price%></span>.
     </p></a>

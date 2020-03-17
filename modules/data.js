@@ -51,7 +51,7 @@ module.exports = {
   },
   top(cleanData) {
     let maximum = cleanData.reduce((max, coin) =>
-      max.day > coin.day ? max : coin
+      Number(max.day) > Number(coin.day) ? max : coin
     );
 
     //And a different way so I can show off .filter()

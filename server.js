@@ -76,7 +76,7 @@ app.get("/top", async (req, res) => {
     const rawData = await response.json();
     const cleanData = dataClean.overview(rawData);
     const topData = dataClean.top(cleanData);
-    console.log(topData);
+
     res.render("bestworst", {
       minimum: topData[0],
       maximum: topData[1]
