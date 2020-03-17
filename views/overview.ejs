@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+
+<h1><%= title %></h1>
+
+<ul class="coinlist">
+    <% cleanData.forEach(coin => { %>
+        <li>
+            <a href="/coin/<%= coin.abbreviation %>">
+                <ul class="coin">
+                  <h2>
+                  <span><%= coin.abbreviation %></span>
+                  <%= coin.name %>
+                  </h2>
+                  <h3>
+                    <span>price</span>
+                    €<%= coin.price %>
+                  </h3>
+                  <ul class="percentage">
+                    <li class=<%= coin.hour > 0 ? "pos" : "neg" %>><span>hour</span><%= coin.hour %>%</li>
+                    <li class=<%= coin.day > 0 ? "pos" : "neg" %>><span>day</span><%= coin.day %>%</li>
+                    <li class=<%= coin.week > 0 ? "pos" : "neg" %>><span>week</span><%= coin.week %>%</li>
+                  </ul>
+                </ul>
+            </a>
+        </li>
+    <% }) %>
+</ul>
+
+<%- include('partials/footer') %>
