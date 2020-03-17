@@ -1,29 +1,21 @@
 <%- include('partials/head') %>
-<main id="overview">
-<h1><%= title %></h1>
-
-<ul class="coinlist">
-    <% cleanData.forEach(coin => { %>
-        <li>
-            <a href="/coin/<%= coin.abbreviation %>">
-                <ul class="coin">
-                  <h2>
-                  <span><%= coin.abbreviation %></span>
-                  <%= coin.name %>
-                  </h2>
-                  <h3>
-                    <span>price</span>
-                    €<%= coin.price %>
-                  </h3>
-                  <ul class="percentage">
-                    <li class=<%= coin.hour > 0 ? "pos" : "neg" %>><span>hour</span><%= coin.hour %>%</li>
-                    <li class=<%= coin.day > 0 ? "pos" : "neg" %>><span>day</span><%= coin.day %>%</li>
-                    <li class=<%= coin.week > 0 ? "pos" : "neg" %>><span>week</span><%= coin.week %>%</li>
-                  </ul>
-                </ul>
-            </a>
-        </li>
-    <% }) %>
-</ul>
+<main id="toplist">
+<h1>Best and Worst</h1>
+<section class="pos">
+  <a href="/coin/<%=maximum.abbreviation%>">
+<h2><%=maximum.abbreviation%></h2>
+<h3><%=maximum.day%></h3>
+<p>
+  That's the best percentage gain in the last 24 hours. <br> The price of <%=maximum.abbreviation%> is now: <span>€<%=maximum.price%></span>.
+    </p></a>
+</section>
+<section class="neg">
+  <a href="/coin/<%=minimum.abbreviation%>">
+<h2><%=minimum.abbreviation%></h2>
+<h3><%=minimum.day%></h3>
+<p>
+  That's the worst percentage loss in the last 24 hours. <br> The price of <%=minimum.abbreviation%> is now: <span>€<%=minimum.price%></span>.
+    </p></a>
+</section>
 </main>
 <%- include('partials/footer') %>

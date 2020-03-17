@@ -63,4 +63,25 @@ app.get("/coin/:coin", async (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+app.get("/top", async (req, res) => {
+  const key = process.env.COIN_MARKET_CAP_KEY,
+    currency = "EUR",
+    cors = "https://cors-anywhere.herokuapp.com/",
+    limit = "50", //Limit to the amount of coins I'm requesting
+    api =
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1",
+    url = `${api}&limit=${limit}&convert=${currency}&CMC_PRO_API_KEY=${key}`;
+
+  fetch(url).then(async response => {
+    const rawData = await response.json();
+    const cleanData = dataClean.overview(rawData);
+    const topData = dataClean.top(cleanData);
+    console.log(topData);
+    res.render("bestworst", {
+      minimum: topData[0],
+      maximum: topData[1]
+    });
+  });
+});
+
+app.listen(port, () => console.log(`Crypto app listening on port ${port}!`));
