@@ -10,6 +10,7 @@
     "build": "npm-run-all build:*",
     "build:css": "node scripts/build-css.js",
     "build:img": "node scripts/build-img.js",
+    "build:assets": "node scripts/build-assets.js",
     "watch:css": "chokidar 'src/css/*.css' --command 'npm run build:css'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
