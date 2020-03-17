@@ -1,5 +1,78 @@
 <%- include('partials/head') %>
+<main id="detail">
+<h1><%= abbreviation %></h1>
+<section>
+</section>
+</main>
+<script>
+  window.onload = function() {
+  let graphPoints = <%- JSON.stringify(graphPoints) %>;
+  chart(graphPoints.hour, "24 hours", "day");
+  chart(graphPoints.week, "7 days", "week");
+  chart(graphPoints.day, "30 days", "month");
 
-<p>Hey</p>
+  function chart(coin, time, id){
+    let sectionElement = document.getElementsByTagName("section")[0],
+      canvas = document.createElement("canvas"),
+      canvasID = "canvas" + id,
+      header = document.createElement("h2");
+    header.innerText = "Last " + time;
+    sectionElement.appendChild(header);
+    canvas.setAttribute("id", canvasID);
+    sectionElement.appendChild(canvas);
+    let timeArray = coin.map(coin => {
+      return coin.t;
+    });
+    let ctx = document.getElementById(canvasID).getContext("2d");
+    let chart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: timeArray,
+        datasets: [
+          {
+            borderDash: [5, 5],
+            pointRadius: 5,
+            pointHoverRadius: 10,
+            borderColor: "goldenrod",
+            data: coin
+          }
+        ]
+      },
 
+      options: {
+        legend: {
+          display: false
+        },
+        xAxes: [
+          {
+            type: "time",
+            distribution: "series",
+            time: {
+              unit: "day",
+              displayFormats: {
+                quarter: "MMM D"
+              }
+            },
+            scaleLabel: {
+              display: true,
+              labelString: "Date"
+            }
+          }
+        ],
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback: function(value, index, values) {
+                  let fixed = value.toFixed(2);
+                  return "€" + fixed;
+                }
+              }
+            }
+          ]
+        }
+      }
+    });
+  }}
+  </script>
 <%- include('partials/footer') %>

@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const fetch = require("node-fetch");
-
+const dataClean = require("./modules/data.js");
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -24,20 +24,7 @@ app.get("/", (req, res) => {
   fetch(url).then(async response => {
     const rawData = await response.json();
 
-    let cleanData = await rawData.data.map(coin => {
-      let price = Number(coin.quote.EUR.price).toFixed(2);
-      price = price.replace(".", ",");
-      price = price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-
-      return {
-        name: coin.name,
-        abbreviation: coin.symbol,
-        price: price,
-        hour: Number(coin.quote.EUR.percent_change_1h).toFixed(2),
-        day: Number(coin.quote.EUR.percent_change_24h).toFixed(2),
-        week: Number(coin.quote.EUR.percent_change_7d).toFixed(2)
-      };
-    });
+    const cleanData = dataClean.overview(rawData);
 
     res.render("overview", {
       title: "Cryptocurrency",
@@ -46,17 +33,18 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/coin/:coin", async (req, res, coin) => {
+app.get("/coin/:coin", async (req, res) => {
   let key = process.env.CRYPTO_COMPARE_KEY,
     currency = "EUR",
+    abbreviation = req.params.coin,
     //
     dayLimit = "30", //30 days + today
     dayApi = "https://min-api.cryptocompare.com/data/v2/histoday?",
-    dayUrl = `${dayApi}fsym=${coin}&tsym=${currency}&limit=${dayLimit}&api-key=${key}`,
+    dayUrl = `${dayApi}fsym=${abbreviation}&tsym=${currency}&limit=${dayLimit}&api-key=${key}`,
     //
     hourLimit = "23", // 23 hours in a day, right?
     hourApi = "https://min-api.cryptocompare.com/data/v2/histohour?",
-    hourUrl = `${hourApi}fsym=${coin}&tsym=${currency}&limit=${hourLimit}&api-key=${key}`;
+    hourUrl = `${hourApi}fsym=${abbreviation}&tsym=${currency}&limit=${hourLimit}&api-key=${key}`;
   //
   let dayResponse = await fetch(dayUrl);
   dayResponse = await dayResponse.json();
@@ -67,8 +55,12 @@ app.get("/coin/:coin", async (req, res, coin) => {
     day: dayResponse,
     hour: hourResponse
   };
+  let graphPoints = await dataClean.detail(coinData);
 
-  res.render("detail", { coinData, coin });
+  res.render("detail", {
+    abbreviation,
+    graphPoints
+  });
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
