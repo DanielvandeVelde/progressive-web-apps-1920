@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "npm run build",
-    "start": "node server.js",
+    "prestart": "npm run build",
+    "start": "nodemon server.js",
     "prebuild": "rimraf ./static",
     "build": "npm-run-all build:*",
     "build:css": "node scripts/build-css.js",
@@ -20,9 +20,7 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
-    "npm-run-all": "^4.1.5"
-  },
-  "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "chokidar-cli": "^2.1.0",
     "dotenv": "^8.2.0",
     "gulp": "^4.0.2",
