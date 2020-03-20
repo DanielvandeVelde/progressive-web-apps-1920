@@ -11,7 +11,6 @@
     "build:css": "node scripts/build-css.js",
     "build:img": "node scripts/build-img.js",
     "build:assets": "node scripts/build-assets.js",
-    "watch:css": "chokidar 'src/css/*.css' --command 'npm run build:css'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniel van de Velde",
@@ -21,7 +20,6 @@
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
     "npm-run-all": "^4.1.5",
-    "chokidar-cli": "^2.1.0",
     "dotenv": "^8.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
