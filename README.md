@@ -25,7 +25,15 @@ To install everything you can use:
 npm install
 ```
 
-And to build & start the server on localhost:3000
+And to build you need to run:
+
+```bash
+npm run-script build
+```
+
+Because I specifically designed that stuff to run properly on Heroku.
+
+Then you can start your server on `localhost:3000` by running:
 
 ```bash
 npm start
