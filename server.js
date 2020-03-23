@@ -84,4 +84,8 @@ app.get("/top", async (req, res) => {
   });
 });
 
+app.get("/offline", (req, res) => {
+  res.render("offline");
+});
+
 app.listen(port, () => console.log(`Crypto app listening on port ${port}!`));
