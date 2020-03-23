@@ -88,4 +88,9 @@ app.get("/offline", (req, res) => {
   res.render("offline");
 });
 
+app.get("/search", (req, res) => {
+  const coin = req.query.search;
+  res.redirect(/coin/ + coin);
+});
+
 app.listen(port, () => console.log(`Crypto app listening on port ${port}!`));

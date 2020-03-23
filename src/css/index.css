@@ -78,8 +78,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  border-bottom: 0.25em solid darkgoldenrod;
-  color: darkgoldenrod;
+  border-bottom: 0.25em solid #996f0a;
+  color: #996f0a;
 }
 
 nav ul li:nth-of-type(3) {
@@ -131,7 +131,6 @@ nav form input {
 }
 
 #toplist p span {
-  color: darkgoldenrod;
   line-height: 2em;
 }
 
@@ -149,9 +148,18 @@ nav form input {
   color: darkgreen;
   font-size: 2em;
 }
+
+#toplist .pos span {
+  color: darkgreen;
+}
+
 #toplist .neg h3 {
   color: firebrick;
   font-size: 2em;
+}
+
+#toplist .neg span {
+  color: firebrick;
 }
 
 #toplist .neg,
