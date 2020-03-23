@@ -46,7 +46,28 @@ On the mainpage it will show the most data in an overview of different coins.
 On the detail-pages it uses different API data and requests to get data and converts these to points in a graph.  
 This graph gets served to the user by also serving chart.js and a `<script>`
 
-The next step will be using manifest and a service-worker to streamline this process and deliver data when the server or API is unreachable and turning this into an installable web-app.
+## What happened
+
+### Performance
+
+I've made several buildscripts that make sure the files are as small as possible.  
+I might even gzip the files I'm sending as well, but I still have to look into that.
+
+The Javascript I'm serving right now is third-party. According to the audit I did this slows down the app by about 0.4 seconds. I'm going to run that from the JS folder and also throw some minimizing and such on that to make sure it won't stand in my way for perfect performance.
+
+### Accesibility
+
+If you've seen [The previous version](www.github.com/DanielvandeVelde/web-app-from-scratch-1920) you can see this one is a lot different.  
+There were tons of issues, some of which I've described in Dutch over at [Browser-tech Assignment 1.2](www.github.com/Danielvandevelde/browser-technologies-1920) but will summarize here:
+
+- I was missing a lot of `<meta>` tags (4+)
+- My form elements didn't have proper labels
+- My links didn't have any names
+- Bad color contrast (black on darkgray)
+
+Which I have all luckily fixed.
+
+Currently a to-do is to make sure I have a fallback for the chart in place, which probably means I'm going to put the chart on top of existing data below it, so a screenreader can read it and non-JS users can view it.
 
 ## To-do / Wishlist
 
