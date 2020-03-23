@@ -2,6 +2,43 @@
 <main id="detail">
 <h1><%= abbreviation %></h1>
 <section>
+  <h2>Last 24 hours</h2>
+  <table>
+   <tr>
+      <th>Date</th><th>Price in euro</th>
+   </tr>
+   <% graphPoints.hour.map(hour => {  %>
+     <tr>
+       <td><%= hour.t %></td>
+       <td><%= hour.y %></td>
+    </tr>
+   <%})%>
+</table>
+<h2>Last 7 days</h2>
+<table>
+ <tr>
+    <th>Date</th><th>Price in euro</th>
+ </tr>
+ <% graphPoints.week.map(week => {  %>
+   <tr>
+     <td><%= week.t %></td>
+     <td><%= week.y %></td>
+  </tr>
+ <%})%>
+</table>
+<h2>Last 30 days</h2>
+<table>
+ <tr>
+    <th>Date</th><th>Price in euro</th>
+ </tr>
+
+ <% graphPoints.day.map(day => {  %>
+   <tr>
+     <td><%= day.t %></td>
+     <td><%= day.y %></td>
+  </tr>
+ <%})%>
+</table>
 </section>
 </main>
 <script>
