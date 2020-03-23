@@ -55,6 +55,10 @@ Currently working on:
 - [x] Making build scripts
 - [x] Figuring out Heroku
 - [x] Create detail pages
+- [ ] Create graph fallback for no JS
 - [x] Creating a manifest
 - [ ] Adding a service worker
-- [ ] Finishing an awesome web-app
+- [ ] Serve files via SW when offline
+- [ ] Show user when offline
+- [ ] Check audit tools (Critical render path)
+- [ ] Optimize! (minify, defer etc.)
