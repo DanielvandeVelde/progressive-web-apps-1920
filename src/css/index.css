@@ -44,6 +44,10 @@ nav {
   display: flex;
 }
 
+nav label {
+  visibility: hidden;
+}
+
 nav ul {
   width: 45em;
   display: flex;
@@ -153,7 +157,7 @@ nav form input {
 }
 
 #toplist .pos h3 {
-  color: green;
+  color: darkgreen;
   font-size: 2em;
 }
 #toplist .neg h3 {
@@ -218,7 +222,7 @@ h1 {
   text-align: center;
 }
 #overview .percentage .pos {
-  color: green;
+  color: darkgreen;
 }
 #overview .percentage .neg {
   color: firebrick;

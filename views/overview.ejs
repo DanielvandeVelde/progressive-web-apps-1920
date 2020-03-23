@@ -6,7 +6,7 @@
     <% cleanData.forEach(coin => { %>
         <li>
             <a href="/coin/<%= coin.abbreviation %>">
-                <ul class="coin">
+                <section class="coin">
                   <h2>
                   <span><%= coin.abbreviation %></span>
                   <%= coin.name %>
@@ -20,7 +20,7 @@
                     <li class=<%= coin.day > 0 ? "pos" : "neg" %>><span>day</span><%= coin.day %>%</li>
                     <li class=<%= coin.week > 0 ? "pos" : "neg" %>><span>week</span><%= coin.week %>%</li>
                   </ul>
-                </ul>
+                </section>
             </a>
         </li>
     <% }) %>
