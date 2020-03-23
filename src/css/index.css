@@ -166,6 +166,14 @@ nav form input {
   border-radius: 0 0 1em 1em;
 }
 
+#offline section {
+  background: grey;
+  padding: 7.5em;
+  margin: 30% 0;
+  border-radius: 1em;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
 #overview nav li:first-of-type a {
   display: none;
   visibility: hidden;
