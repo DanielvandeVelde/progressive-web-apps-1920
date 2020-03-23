@@ -157,7 +157,7 @@ nav form input {
   font-size: 2em;
 }
 #toplist .neg h3 {
-  color: red;
+  color: firebrick;
   font-size: 2em;
 }
 
@@ -221,7 +221,7 @@ h1 {
   color: green;
 }
 #overview .percentage .neg {
-  color: red;
+  color: firebrick;
 }
 #overview h2 {
   font-size: 1.5em;
