@@ -3,7 +3,8 @@ var urlsToCache = [
   "/css/index.css",
   "/img/background.jpg",
   "/img/loading.svg",
-  "/img/icons/icon-144x144.png",
+  "/img/icons/favicon.png",
+  "/js/chart.min.js",
   "/offline"
 ];
 
