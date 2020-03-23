@@ -45,18 +45,29 @@ nav {
 }
 
 nav label {
-  visibility: hidden;
+  visibility: visible;
 }
 
 nav ul {
   width: 45em;
   display: flex;
   margin: 0 auto;
+  justify-content: center;
 }
 
 nav ul li {
   padding: 1em;
   height: 100%;
+}
+
+nav ul li:nth-of-type(2) {
+  padding: 0;
+  display: flex;
+}
+
+nav ul li label {
+  visibility: hidden;
+  letter-spacing: -0.5em;
 }
 
 nav ul li a {
@@ -70,25 +81,8 @@ nav ul li a:hover {
   border-bottom: 0.25em solid darkgoldenrod;
   color: darkgoldenrod;
 }
-nav ul li:first-of-type {
-  margin-top: -0.5em;
-  padding-left: 2em;
-}
 
-nav ul li:first-of-type a:hover {
-  border-bottom: none;
-  box-shadow: 0.25em -0.25em 0 0 darkgoldenrod inset;
-}
-
-nav ul li:first-of-type a {
-  display: flex;
-  margin: 0.5em;
-  padding: 0.5em;
-  box-shadow: 0.25em -0.25em 0 0 black inset;
-  transform: rotateZ(45deg);
-}
-
-nav ul li:nth-of-type(2) {
+nav ul li:nth-of-type(3) {
   margin-left: auto;
 }
 
@@ -106,11 +100,6 @@ nav form input {
 
 #toplist .pos {
   margin-top: 5em;
-}
-
-#toplist nav ul li:last-child a {
-  border-bottom: 0.25em solid darkgoldenrod;
-  color: darkgoldenrod;
 }
 
 #toplist section:hover a {
@@ -176,12 +165,6 @@ nav form input {
   margin: 30% 0;
   border-radius: 1em;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
-}
-
-#overview nav li:first-of-type a {
-  display: none;
-  visibility: hidden;
-  padding: 0 1rem;
 }
 
 #detail h1 {
