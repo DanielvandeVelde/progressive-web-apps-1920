@@ -44,9 +44,9 @@
 <script>
   window.onload = function() {
   let graphPoints = <%- JSON.stringify(graphPoints) %>;
+    chart(graphPoints.day, "30 days", "month");
+      chart(graphPoints.week, "7 days", "week");
   chart(graphPoints.hour, "24 hours", "day");
-  chart(graphPoints.week, "7 days", "week");
-  chart(graphPoints.day, "30 days", "month");
 
   function chart(coin, time, id){
     let sectionElement = document.getElementsByTagName("section")[0],
@@ -54,9 +54,10 @@
       canvasID = "canvas" + id,
       header = document.createElement("h2");
     header.innerText = "Last " + time;
-    sectionElement.appendChild(header);
     canvas.setAttribute("id", canvasID);
-    sectionElement.appendChild(canvas);
+    sectionElement.insertAdjacentElement('afterbegin',canvas);
+            sectionElement.insertAdjacentElement('afterbegin',header);
+            
     let timeArray = coin.map(coin => {
       return coin.t;
     });
