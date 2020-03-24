@@ -53,17 +53,16 @@ Then I added a Service Worker.
 Since it's very important for the application to stay up-to-date the only things I put in cache are the css, js, images as well as an offline page.  
 The ServiceWorker will install itself first.  
 After receiving a fetch request it will check if it's a file it has in the cache, if not it will check the network. If both of these fail it will send the user the offline page from the cache.
+The Service Worker really helped in making sure my repeat views were way faster than before. Especially serving the third-party library (that was huge even when minified) really helped making the PWA a lot faster on the repeat views even though the parsing still takes a while.
 
 It's on the wishlist to tell the user when it's offline and serve him old data while also informing the user how old that data is. If I had more time I would definitely explore this option.
 
 ### Performance
 
-This was the 'before', at this point I already had a couple of build-scripts to make sure the files were minified/uglified basically as small as possible since I was already familiar with how to set-up a server-side website and some of this information.
+When I started improving performance already had a couple of build-scripts to make sure the files were minified/uglified basically as small as possible since I was already familiar with how to set-up a server-side website.  
+Express compression also really helped me in making sure my Time To First Byte (especially on the first view) was as small as possible.
 
-I still had a couple of things to do such as: text-compression and making sure my css wasn't render-blocking.  
-I eventually used compression and chose to use system-fonts instead of a font-face.
-
-I have also added a table to the detailpages so data can be shown before/without javascript. This also has added accesibility benefits.
+For the critical rendering path I have no @imports, put all the CSS in the head and made sure it wasn't render-blocking as much as I could by making it as small as possible with build-scripts I referenced earlier. My Javascript is already not render-blocking because of a defer and only adds interactivity as a progressive enhancement.
 
 ### Accesibility
 
@@ -83,7 +82,7 @@ I have also tried to make it better for a screenreader by adding in a table on t
 
 This way something can actually be read instead of the screenreader not knowing what to do and as a bonus it also helps with performance since the graph is now just an enhancement.
 
-### After
+### Conclusion
 
 <kbd>![Audit results after improvements](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/after.png "Audit results after improvements")</kbd>
 
