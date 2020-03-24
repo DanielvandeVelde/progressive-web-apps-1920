@@ -43,9 +43,20 @@ This graph gets served to the user by also serving chart.js and a `<script>`
 
 ## What happened
 
-### Performance
+### Progessive Web App
 
-<kbd>![Audit before after improvements](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/before.png "Audit results before improvements")</kbd>
+In the route to making this a PWA I first added a manifest.  
+The biggest challenge that gave me was the custom splash screen and several errors about my images not being perfect squares.  
+After solving those I started the optimization by adding theme-colors, apple-touch-icons etc.
+
+Then I added a Service Worker.  
+Since it's very important for the application to stay up-to-date the only things I put in cache are the css, js, images as well as an offline page.  
+The ServiceWorker will install itself first.  
+After receiving a fetch request it will check if it's a file it has in the cache, if not it will check the network. If both of these fail it will send the user the offline page from the cache.
+
+It's on the wishlist to tell the user when it's offline and serve him old data while also informing the user how old that data is. If I had more time I would definitely explore this option.
+
+### Performance
 
 This was the 'before', at this point I already had a couple of build-scripts to make sure the files were minified/uglified basically as small as possible since I was already familiar with how to set-up a server-side website and some of this information.
 
@@ -86,10 +97,10 @@ Currently working on:
 - [x] Making build scripts
 - [x] Figuring out Heroku
 - [x] Create detail pages
-- [ ] Create graph fallback for no JS
+- [x] Create graph fallback for no JS
 - [x] Creating a manifest
-- [ ] Adding a service worker
-- [ ] Serve files via SW when offline
+- [x] Adding a service worker
+- [x] Serve files via SW when offline
 - [ ] Show user when offline
-- [ ] Check audit tools (Critical render path)
-- [ ] Optimize! (minify, defer etc.)
+- [x] Check audit tools (Critical render path)
+- [x] Optimize! (minify, defer etc.)
