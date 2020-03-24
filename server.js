@@ -7,8 +7,8 @@ const dataClean = require("./modules/data.js");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.static("static"));
 app.use(compression());
+app.use(express.static("static"));
 
 app.set("view engine", "ejs");
 // Tell the views engine/ejs where the template files are stored (Settingname, value)
