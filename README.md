@@ -1,15 +1,10 @@
 # Progressive Web Apps 1920
 
-## Beoordeling 20 maart 2020
-
-Ik weet nog niet zo goed waar ik op beoordeeld kan worden.
-Over het algemeen gaat het best lekker en moet ik nog even goed de service worker uitwerken. Dat is misschien iets waar ik nog wat richting in nodig heb en wat onderzoek naar moet doen.
-
-<kbd>![Shiny front-end](https://raw.githubusercontent.com/DanielvandeVelde/web-app-from-scratch-1920/master/public/img/banner.png "Shiny front-end")</kbd>
-<sub><sup>Remember bitcoin being at \$9k just a month ago?</sup></sub>
+<kbd>![Shiny front-end](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/front%20end.png "Shiny front-end")</kbd>
 
 This is a continuation of my [WAFS 19-20 assignment](https://github.com/danielvandevelde/web-app-from-scratch-1920)
-I have a demo over there of a client-side-version and this is a mostly server-sided progressive-web-app with a [demo here](https://cryptocurrency-1920.herokuapp.com/)
+I have a demo over there of a client-side-version.  
+This is a mostly server-sided progressive-web-app with a [demo here](https://cryptocurrency-1920.herokuapp.com/)
 
 ## Install
 
@@ -50,24 +45,39 @@ This graph gets served to the user by also serving chart.js and a `<script>`
 
 ### Performance
 
-I've made several buildscripts that make sure the files are as small as possible.  
-I might even gzip the files I'm sending as well, but I still have to look into that.
+<kbd>![Audit before after improvements](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/before.png "Audit results before improvements")</kbd>
 
-The Javascript I'm serving right now is third-party. According to the audit I did this slows down the app by about 0.4 seconds. I'm going to run that from the JS folder and also throw some minimizing and such on that to make sure it won't stand in my way for perfect performance.
+This was the 'before', at this point I already had a couple of build-scripts to make sure the files were minified/uglified basically as small as possible since I was already familiar with how to set-up a server-side website and some of this information.
+
+I still had a couple of things to do such as: text-compression and making sure my css wasn't render-blocking.  
+I eventually used compression and chose to use system-fonts instead of a font-face.
+
+I have also added a table to the detailpages so data can be shown before/without javascript. This also has added accesibility benefits.
 
 ### Accesibility
 
 If you've seen [The previous version](www.github.com/DanielvandeVelde/web-app-from-scratch-1920) you can see this one is a lot different.  
 There were tons of issues, some of which I've described in Dutch over at [Browser-tech Assignment 1.2](www.github.com/Danielvandevelde/browser-technologies-1920) but will summarize here:
 
-- I was missing a lot of `<meta>` tags (4+)
+- I was missing a lot of `<meta>` tags
 - My form elements didn't have proper labels
-- My links didn't have any names
-- Bad color contrast (black on darkgray)
+- Some of my links didn't have any content (just a back arrow)
+- Bad color contrast (black/red/green on darkgray)
 
-Which I have all luckily fixed.
+Which I have all fixed by now.
 
-Currently a to-do is to make sure I have a fallback for the chart in place, which probably means I'm going to put the chart on top of existing data below it, so a screenreader can read it and non-JS users can view it.
+I have also tried to make it better for a screenreader by adding in a table on the detailpage.
+
+<kbd>![detailpage table](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/table.png "detailpage table")</kbd>
+
+This way something can actually be read instead of the screenreader not knowing what to do and as a bonus it also helps with performance since the graph is now just an enhancement.
+
+### After
+
+<kbd>![Audit results after improvements](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/after.png "Audit results after improvements")</kbd>
+
+I'm happy how everything turned out.  
+I really wished I had a better solution for the third-party library I'm loading in at the detailpages, but I think I did well by first creating tables and adding everything else as a progressive enhancement.
 
 ## To-do / Wishlist
 
