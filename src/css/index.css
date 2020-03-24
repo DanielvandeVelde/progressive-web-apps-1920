@@ -44,10 +44,6 @@ nav {
   display: flex;
 }
 
-nav label {
-  visibility: visible;
-}
-
 nav ul {
   width: 45em;
   display: flex;
@@ -148,7 +144,7 @@ nav form input {
   color: darkgreen;
   font-size: 2em;
 }
-
+#overview .percentage .pos,
 #toplist .pos span {
   color: darkgreen;
 }
@@ -158,6 +154,7 @@ nav form input {
   font-size: 2em;
 }
 
+#overview .percentage .neg,
 #toplist .neg span {
   color: firebrick;
 }
@@ -191,8 +188,44 @@ nav form input {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
-#detail h2:first-of-type {
-  border: none;
+#detail th {
+  font-weight: bold;
+}
+
+#detail table {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 20em;
+}
+
+#detail tr {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+#detail tr td:first-of-type {
+  border-right: 1px solid black;
+}
+
+#detail tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#detail td {
+  padding: 0.125em;
+}
+
+#detail th {
+  padding: 0.25em;
+}
+
+#detail tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.25s;
+}
+
+#detail table:last-of-type {
+  margin: 0 auto 4em;
 }
 
 #detail canvas {
@@ -212,12 +245,7 @@ h1 {
   margin-bottom: 10%;
   text-align: center;
 }
-#overview .percentage .pos {
-  color: darkgreen;
-}
-#overview .percentage .neg {
-  color: firebrick;
-}
+
 #overview h2 {
   font-size: 1.5em;
   width: 15em;

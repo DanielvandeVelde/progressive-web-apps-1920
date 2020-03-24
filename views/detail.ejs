@@ -57,7 +57,7 @@
     canvas.setAttribute("id", canvasID);
     sectionElement.insertAdjacentElement('afterbegin',canvas);
             sectionElement.insertAdjacentElement('afterbegin',header);
-            
+
     let timeArray = coin.map(coin => {
       return coin.t;
     });
@@ -113,5 +113,5 @@
     });
   }}
   </script>
-  <script defer src="/js/chart.min.js"></script>
+  <script src="/js/chart.min.js" defer></script>
 <%- include('partials/footer') %>

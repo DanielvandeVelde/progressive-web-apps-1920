@@ -34,7 +34,7 @@ module.exports = {
     function createGraphPoints(cleanedData, options) {
       let graphData = cleanedData.map(coin => {
         let price = (coin.high + coin.low) / 2;
-        price = Number(price).toFixed(5);
+        price = Number(price).toFixed(2);
         let time = new Date(coin.time * 1000).toLocaleDateString(
           undefined,
           options
