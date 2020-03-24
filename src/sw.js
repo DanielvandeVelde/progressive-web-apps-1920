@@ -2,7 +2,6 @@ var CACHE_NAME = "Cryptocurrency-1920";
 var urlsToCache = [
   "/css/index.css",
   "/img/background.jpg",
-  "/img/loading.svg",
   "/img/icons/favicon.png",
   "/js/chart.min.js",
   "/offline"
@@ -10,10 +9,7 @@ var urlsToCache = [
 
 self.addEventListener("install", function(event) {
   event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-      .then(self.skipWaiting())
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
