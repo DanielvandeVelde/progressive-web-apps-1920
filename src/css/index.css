@@ -4,7 +4,7 @@ body {
       rgba(20, 21, 24, 0.5),
       rgba(20, 21, 24, 1) 30em
     ),
-    url("../img/background.jpg");
+    url("../img/background.png");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
