@@ -87,7 +87,9 @@ This way something can actually be read instead of the screenreader not knowing 
 <kbd>![Audit results after improvements](https://raw.githubusercontent.com/DanielvandeVelde/progressive-web-apps-1920/master/readme%20images/after.png "Audit results after improvements")</kbd>
 
 I'm happy how everything turned out.  
-I really wished I had a better solution for the third-party library I'm loading in at the detailpages, but I think I did well by first creating tables and adding everything else as a progressive enhancement.
+The audit tool shows (almost) perfect scores and I really spend a lot of time optimizing the PWA so it has the best performance I could get and the fastest time to first byte.
+I managed to get a service worker working that shows an offline page as well as caching all the needed JS and CSS files which really helps for repeat views.  
+I've got extra-functionalities working server-side and am using client-side JavaScript to progressively enhance the detailpage.
 
 ## To-do / Wishlist
 
@@ -100,6 +102,6 @@ Currently working on:
 - [x] Creating a manifest
 - [x] Adding a service worker
 - [x] Serve files via SW when offline
-- [ ] Show user when offline
+- [ ] Show user old + a message when offline
 - [x] Check audit tools (Critical render path)
 - [x] Optimize! (minify, defer etc.)
