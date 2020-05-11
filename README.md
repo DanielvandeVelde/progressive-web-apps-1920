@@ -71,6 +71,11 @@ To make sure my Javascript wasn't render blocking I used a defer and also made s
 I removed various lines of CSS to make sure it was as small as possible and also used a tool called [Critical Path CSS Generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) by Jonas Sebastian Ohlsson.
 I moved my CSS to the bottom of the body and only added the critical CSS into the head of the HTML file.
 
+[https://www.webpagetest.org](https://www.webpagetest.org)
+
+So with all that, including text-compression, efficient images and a lot of minification and clever placement of the script and link tags in the html-file I have a very fast app running.  
+If I wanted to I could make this entire thing a lot faster by just removing the image (just like I removed my webfont) but that would make the whole thing very boring to look at, and it's plenty fast as is.
+
 ### Accesibility
 
 If you've seen [The previous version](www.github.com/DanielvandeVelde/web-app-from-scratch-1920) you can see this one is a lot different.  
