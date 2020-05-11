@@ -57,14 +57,19 @@ The Service Worker really helped in making sure my repeat views were way faster 
 
 It's on the wishlist to tell the user when it's offline and serve him old data while also informing the user how old that data is. If I had more time I would definitely explore this option.
 
-### Performance
-
-When I started improving performance already had a couple of build-scripts to make sure the files were minified/uglified basically as small as possible since I was already familiar with how to set-up a server-side website.  
-Express compression also really helped me in making sure my Time To First Byte (especially on the first view) was as small as possible.
-
 ### Critical Rendering Path
 
-For the critical rendering path I have no @imports, put all the CSS in the head and made sure it wasn't render-blocking as much as I could by making it as small as possible with build-scripts I referenced earlier. My Javascript is already not render-blocking because of a defer and only adds interactivity as a progressive enhancement.
+I have several scripts in place that minify and concat my CSS, same for the uglify and minify of my JS.  
+Even the images are optimized and minified into the smallest possible size.  
+I also use compression to make sure my server sends the files as GZIP.
+
+The time to first byte is very fast, since these happen during build and can be instantly sent as soon as they are requested and not dynamically generated.  
+Gzipping the files also helps since these files are even smaller and therefore faster in reaching the user.
+
+To make sure my Javascript wasn't render blocking I used a defer and also made sure that it only adds interactivity as a progressive enhancement. So it won't be a problem if it never gets loaded at all.
+
+I removed various lines of CSS to make sure it was as small as possible and also used a tool called [Critical Path CSS Generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) by Jonas Sebastian Ohlsson.
+I moved my CSS to the bottom of the body and only added the critical CSS into the head of the HTML file.
 
 ### Accesibility
 
