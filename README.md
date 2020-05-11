@@ -62,6 +62,8 @@ It's on the wishlist to tell the user when it's offline and serve him old data w
 When I started improving performance already had a couple of build-scripts to make sure the files were minified/uglified basically as small as possible since I was already familiar with how to set-up a server-side website.  
 Express compression also really helped me in making sure my Time To First Byte (especially on the first view) was as small as possible.
 
+### Critical Rendering Path
+
 For the critical rendering path I have no @imports, put all the CSS in the head and made sure it wasn't render-blocking as much as I could by making it as small as possible with build-scripts I referenced earlier. My Javascript is already not render-blocking because of a defer and only adds interactivity as a progressive enhancement.
 
 ### Accesibility
