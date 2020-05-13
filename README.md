@@ -57,7 +57,7 @@ The Service Worker really helped in making sure my repeat views were way faster 
 
 It's on the wishlist to tell the user when it's offline and serve him old data while also informing the user how old that data is. If I had more time I would definitely explore this option.
 
-### Critical Rendering Path
+### Performance & Critical Rendering Path
 
 I have several scripts in place that minify and concat my CSS, same for the uglify and minify of my JS.  
 Even the images are optimized and minified into the smallest possible size.  
@@ -71,7 +71,9 @@ To make sure my Javascript wasn't render blocking I used a defer and also made s
 I removed various lines of CSS to make sure it was as small as possible and also used a tool called [Critical Path CSS Generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) by Jonas Sebastian Ohlsson.
 I moved my CSS to the bottom of the body and only added the critical CSS into the head of the HTML file.
 
-[https://www.webpagetest.org](https://www.webpagetest.org)
+After following the 'Optimizing for CRP' from [MDN Critical Rendering Path](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path) and checking the results on: [https://www.webpagetest.org](https://www.webpagetest.org) I made even more changes.
+
+I also made sure to change some things around for the CSS Object Model since `.foo` is faster than `.bar .foo`. Not critically important, but faster is faster! I added more changes such as minimizing requests, deferring and optimizing the order of the downloads. This makes the CRP a lot faster and the paint a lot faster.
 
 So with all that, including text-compression, efficient images and a lot of minification and clever placement of the script and link tags in the html-file I have a very fast app running.  
 If I wanted to I could make this entire thing a lot faster by just removing the image (just like I removed my webfont) but that would make the whole thing very boring to look at, and it's plenty fast as is.
