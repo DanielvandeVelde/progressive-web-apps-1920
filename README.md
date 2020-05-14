@@ -70,13 +70,16 @@ To make sure my Javascript wasn't render blocking I used a defer and also made s
 
 I removed various lines of CSS to make sure it was as small as possible and also used a tool called [Critical Path CSS Generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) by Jonas Sebastian Ohlsson.
 I moved my CSS to the bottom of the body and only added the critical CSS into the head of the HTML file.
+Using websafe fonts was also a timesave in loading the css.
 
 After following the 'Optimizing for CRP' from [MDN Critical Rendering Path](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path) and checking the results on: [https://www.webpagetest.org](https://www.webpagetest.org) I made even more changes.
 
-I also made sure to change some things around for the CSS Object Model since `.foo` is faster than `.bar .foo`. Not critically important, but faster is faster! I added more changes such as minimizing requests, deferring and optimizing the order of the downloads. This makes the CRP a lot faster and the paint a lot faster.
+I also made sure to change some things around for the CSS Object Model since `.foo` is faster than `.bar .foo`. Not critically important, but faster is faster! I added more changes such as minimizing requests, deferring and optimizing the order of the downloads. This makes the paint a lot faster.
 
 So with all that, including text-compression, efficient images and a lot of minification and clever placement of the script and link tags in the html-file I have a very fast app running.  
-If I wanted to I could make this entire thing a lot faster by just removing the image (just like I removed my webfont) but that would make the whole thing very boring to look at, and it's plenty fast as is.
+If I wanted to I could make this entire thing a lot faster by just removing the image (just like I removed my custom font) but that would make the whole thing very boring to look at, and it's plenty fast as is.
+
+The service worker helps with caching of files and makes the repeat view a lot faster.
 
 ### Accesibility
 
